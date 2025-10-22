@@ -1,4 +1,4 @@
-# 📊 Progreso del Proyecto Marketplace
+# 📊 Progreso del Proyecto MonterPlace
 
 ## ✅ Completado
 
@@ -89,7 +89,7 @@
 
 ### Pasos
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 
 # Instalar dependencias (si no están instaladas)
 npm install
@@ -125,7 +125,7 @@ El proyecto estará disponible en `http://localhost:3000`
 ## 📦 Estructura Actual
 
 ```
-marketplace/
+MonterPlace/
 ├── app/
 │   ├── actions/
 │   │   ├── auth.ts          ✅
@@ -166,7 +166,7 @@ marketplace/
 
 ## 🔗 Conexión con Backend
 
-El marketplace consume los siguientes endpoints del backend NestJS:
+El MonterPlace consume los siguientes endpoints del backend NestJS:
 
 - `GET /product` - Listar productos (público)
 - `GET /product/:id` - Detalle de producto

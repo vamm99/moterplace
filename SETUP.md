@@ -10,7 +10,7 @@
 
 ```bash
 # 1. Navegar al directorio del proyecto
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 
 # 2. Instalar dependencias (si no están instaladas)
 npm install
@@ -34,11 +34,11 @@ El backend debe estar corriendo en `http://localhost:3005`
 ### 2. Iniciar el Frontend (Terminal 2)
 
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 
-El marketplace estará disponible en `http://localhost:3000`
+El MonterPlace estará disponible en `http://localhost:3000`
 
 ## 🧪 Credenciales de Prueba
 
@@ -96,7 +96,7 @@ Puedes crear una nueva cuenta desde `/register`
 ## 📂 Estructura de Archivos
 
 ```
-marketplace/
+MonterPlace/
 ├── app/
 │   ├── actions/              # Server Actions
 │   │   ├── auth.ts          # Login, registro, logout

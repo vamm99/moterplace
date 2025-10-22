@@ -6,7 +6,7 @@
 
 #### 1. **Header (Navegación Superior)**
 - ✅ Logo icono: `text-primary-700` (más oscuro y visible)
-- ✅ Texto "MarketPlace": `text-gray-950` (negro intenso)
+- ✅ Texto "MonterPlace": `text-gray-950` (negro intenso)
 - ✅ Iconos de navegación: `text-gray-700` (Search, Heart, Cart, User, Menu)
 - ✅ Enlaces móviles: `text-gray-800 font-medium`
 
@@ -124,7 +124,7 @@ Todos los cambios son compatibles con:
 
 1. **Reiniciar el servidor**:
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 
@@ -173,13 +173,13 @@ El warning `Unknown at rule @theme` en `globals.css` es normal en Tailwind CSS v
 - 👁️ **Iconos 100% visibles** en todas las pantallas
 - 📖 **Texto legible** en todos los tamaños
 - ♿ **Accesibilidad mejorada** (WCAG AA)
-- 🎯 **Consistencia visual** en todo el marketplace
+- 🎯 **Consistencia visual** en todo el MonterPlace
 
 ---
 
 ## 🎉 ¡Listo!
 
-El marketplace ahora tiene colores oscuros y visibles en:
+El MonterPlace ahora tiene colores oscuros y visibles en:
 - ✅ Todos los textos
 - ✅ Todos los iconos
 - ✅ Todas las cards

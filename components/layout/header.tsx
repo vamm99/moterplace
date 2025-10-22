@@ -36,7 +36,7 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <Store className="h-8 w-8 text-black" />
             <span className="text-2xl font-bold text-black">
-              Market<span className="text-black">Place</span>
+              Monter<span className="text-black">Place</span>
             </span>
           </Link>
 

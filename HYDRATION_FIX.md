@@ -169,7 +169,7 @@ useEffect(() => {
 
 ### 1. Limpiar caché y reiniciar:
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 rm -rf .next
 npm run dev
 ```
@@ -265,7 +265,7 @@ className={mounted && condicion ? 'clase' : ''}
 
 ## 🚀 ¡Problema Resuelto!
 
-El marketplace ahora está libre de errores de hidratación y funciona perfectamente con:
+El MonterPlace ahora está libre de errores de hidratación y funciona perfectamente con:
 - ✅ SSR (Server-Side Rendering)
 - ✅ Hidratación correcta
 - ✅ Estado persistente

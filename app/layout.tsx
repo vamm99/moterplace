@@ -8,8 +8,8 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MarketPlace - Tu tienda online de confianza",
-  description: "Encuentra los mejores productos al mejor precio en nuestro marketplace",
+  title: "MonterPlace - Tu tienda online de confianza",
+  description: "Encuentra los mejores productos al mejor precio en nuestro MonterPlace",
 };
 
 export default function RootLayout({

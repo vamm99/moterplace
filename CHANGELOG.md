@@ -1,4 +1,4 @@
-# 📝 Changelog - Marketplace
+# 📝 Changelog - MonterPlace
 
 ## [1.1.0] - 2025-10-15
 
@@ -43,7 +43,7 @@
 ## [1.0.0] - 2025-10-15
 
 ### ✨ Lanzamiento Inicial
-- Marketplace completo con todas las funcionalidades
+- MonterPlace completo con todas las funcionalidades
 - 11 páginas implementadas
 - Sistema de carrito y wishlist
 - Autenticación completa
@@ -64,7 +64,7 @@ npm run dev
 
 ### Frontend (Next.js)
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 # Reiniciar el servidor
 npm run dev
 ```

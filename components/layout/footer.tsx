@@ -11,7 +11,7 @@ export function Footer() {
             <div className="flex items-center space-x-2">
               <ShoppingCart className="h-8 w-8 text-primary-500" />
               <span className="text-2xl font-bold text-white">
-                Market<span className="text-primary-400">Place</span>
+                Monter<span className="text-primary-400">Place</span>
               </span>
             </div>
             <p className="text-sm text-gray-400">
@@ -90,7 +90,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} MarketPlace. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} MonterPlace. Todos los derechos reservados.</p>
           <div className="mt-2 space-x-4">
             <Link href="/privacy" className="hover:text-primary-400 transition-colors">
               Política de Privacidad

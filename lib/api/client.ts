@@ -34,7 +34,7 @@ export async function apiClient<T>(
     const response = await fetch(url, {
       ...options,
       headers,
-      cache: 'no-store', // Importante para marketplace con datos dinámicos
+      cache: 'no-store', // Importante para MonterPlace con datos dinámicos
     });
 
     const clonedResponse = response.clone();

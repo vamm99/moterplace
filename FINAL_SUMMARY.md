@@ -263,7 +263,7 @@ cd /home/victor/NestJs/Auth-Init
 npm run dev
 
 # Terminal 2 - Frontend
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 
@@ -389,9 +389,9 @@ http://localhost:3001/account/orders
 
 ---
 
-## ✨ ¡Marketplace 100% Funcional!
+## ✨ ¡MonterPlace 100% Funcional!
 
-El marketplace está completamente operativo con:
+El MonterPlace está completamente operativo con:
 - 🛒 Sistema de compras end-to-end
 - 💳 Múltiples métodos de pago
 - 🔐 Autenticación robusta

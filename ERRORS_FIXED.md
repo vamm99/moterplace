@@ -52,7 +52,7 @@ Cambiado el tipo de `params` a `Promise` y agregado `await`:
 
 **Archivo modificado**:
 ```typescript
-// /home/victor/NextJs/marketplace/app/product/[id]/page.tsx
+// /home/victor/NextJs/MonterPlace/app/product/[id]/page.tsx
 interface ProductPageProps {
   params: Promise<{
     id: string;
@@ -80,8 +80,8 @@ GET /category/68ef2d656da281bc245f8914 404
 
 **Solución**: ✅
 Creadas las páginas:
-- `/home/victor/NextJs/marketplace/app/deals/page.tsx`
-- `/home/victor/NextJs/marketplace/app/category/[id]/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/deals/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/category/[id]/page.tsx`
 
 ---
 
@@ -133,7 +133,7 @@ npm run dev
 
 ### Frontend
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 
@@ -215,7 +215,7 @@ npm run dev
 
 ## ✅ Todo Listo
 
-El marketplace está completamente funcional con:
+El MonterPlace está completamente funcional con:
 - 🎨 Diseño moderno y responsive
 - 🔍 Búsqueda y filtros funcionando
 - ⭐ Sistema de reseñas completo
@@ -224,4 +224,4 @@ El marketplace está completamente funcional con:
 - 🛒 Carrito y wishlist persistentes
 - 📱 Compatible con móviles
 
-**¡Disfruta tu marketplace!** 🚀
+**¡Disfruta tu MonterPlace!** 🚀

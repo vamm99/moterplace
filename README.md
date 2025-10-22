@@ -1,6 +1,6 @@
-# 🛒 Marketplace - E-commerce Platform
+# 🛒 MonterPlace - E-commerce Platform
 
-Marketplace completo estilo Amazon construido con Next.js 15, TypeScript, Tailwind CSS y Zustand.
+MonterPlace completo estilo Amazon construido con Next.js 15, TypeScript, Tailwind CSS y Zustand.
 
 ## ✨ Características
 
@@ -48,11 +48,11 @@ npm start
 ## 📁 Estructura del proyecto
 
 ```
-marketplace/
+MonterPlace/
 ├── app/                    # App Router de Next.js
 │   ├── actions/           # Server Actions
 │   ├── (auth)/           # Rutas de autenticación
-│   ├── (shop)/           # Rutas del marketplace
+│   ├── (shop)/           # Rutas del MonterPlace
 │   └── layout.tsx        # Layout principal
 ├── components/            # Componentes React
 │   ├── ui/               # Componentes UI reutilizables

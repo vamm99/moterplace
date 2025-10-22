@@ -227,7 +227,7 @@ processCheckoutAction(data)
 
 ### 1. Reiniciar Frontend
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 

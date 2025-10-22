@@ -43,7 +43,7 @@ export default function LoginPage() {
           <Link href="/" className="inline-flex items-center space-x-2">
             <ShoppingCart className="h-10 w-10 text-blue-600" />
             <span className="text-3xl font-bold text-gray-900">
-              Market<span className="text-blue-600">Place</span>
+              Monter<span className="text-blue-600">Place</span>
             </span>
           </Link>
         </div>

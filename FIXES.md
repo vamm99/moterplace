@@ -15,7 +15,7 @@
   - Separadores `border-gray-100` en headers
 
 **Archivos modificados**:
-- `/home/victor/NextJs/marketplace/components/ui/card.tsx`
+- `/home/victor/NextJs/MonterPlace/components/ui/card.tsx`
 
 ---
 
@@ -29,10 +29,10 @@
 - Loading state mientras verifica autenticación
 
 **Archivos modificados**:
-- `/home/victor/NextJs/marketplace/app/checkout/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/checkout/page.tsx`
 
 **Archivos nuevos**:
-- `/home/victor/NextJs/marketplace/lib/auth/check-auth.ts`
+- `/home/victor/NextJs/MonterPlace/lib/auth/check-auth.ts`
 
 ---
 
@@ -82,11 +82,11 @@
 **Archivos modificados**:
 - `/home/victor/NestJs/Auth-Init/src/modules/review/controller/review.controller.ts`
 - `/home/victor/NestJs/Auth-Init/src/modules/review/service/review.service.ts`
-- `/home/victor/NextJs/marketplace/components/products/product-detail.tsx`
+- `/home/victor/NextJs/MonterPlace/components/products/product-detail.tsx`
 
 **Archivos nuevos**:
-- `/home/victor/NextJs/marketplace/app/actions/reviews.ts`
-- `/home/victor/NextJs/marketplace/components/products/product-reviews.tsx`
+- `/home/victor/NextJs/MonterPlace/app/actions/reviews.ts`
+- `/home/victor/NextJs/MonterPlace/components/products/product-reviews.tsx`
 
 ---
 
@@ -102,7 +102,7 @@
 - Estado visual del método seleccionado
 
 **Archivos modificados**:
-- `/home/victor/NextJs/marketplace/app/checkout/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/checkout/page.tsx`
 
 **Métodos disponibles** (según schema del backend):
 - `bamcolombia`
@@ -126,8 +126,8 @@
   - Contador de productos en oferta
 
 **Archivos nuevos**:
-- `/home/victor/NextJs/marketplace/app/category/[id]/page.tsx`
-- `/home/victor/NextJs/marketplace/app/deals/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/category/[id]/page.tsx`
+- `/home/victor/NextJs/MonterPlace/app/deals/page.tsx`
 
 ---
 
@@ -172,7 +172,7 @@ npm run dev
 
 ### 2. Reiniciar Frontend
 ```bash
-cd /home/victor/NextJs/marketplace
+cd /home/victor/NextJs/MonterPlace
 npm run dev
 ```
 

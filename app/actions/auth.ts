@@ -38,7 +38,7 @@ export async function registerAction(
   userData: RegisterData
 ): Promise<ActionResult<LoginResponse>> {
   try {
-    // Asegurarse de que el rol sea 'customer' para el marketplace
+    // Asegurarse de que el rol sea 'customer' para el MonterPlace
     const customerData = {
       ...userData,
       role: 'customer',
