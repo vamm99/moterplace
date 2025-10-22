@@ -12,7 +12,7 @@ export default function CartPage() {
 
   const handleUpdateQuantity = (productId: string, newQuantity: number, maxStock: number) => {
     if (newQuantity > maxStock) {
-      toast.error(`Solo hay ${maxStock} unidades disponibles`);
+      toast.error(`Solo hay ${maxStock} ${maxStock === 1 ? 'unidad disponible' : 'unidades disponibles'} de este producto`);
       return;
     }
     updateQuantity(productId, newQuantity);
@@ -20,14 +20,12 @@ export default function CartPage() {
 
   const handleRemoveItem = (productId: string, productName: string) => {
     removeItem(productId);
-    toast.success(`${productName} eliminado del carrito`);
+    toast.success(`${productName} ha sido eliminado de tu carrito`);
   };
 
   const handleClearCart = () => {
-    if (confirm('¿Estás seguro de vaciar el carrito?')) {
-      clearCart();
-      toast.success('Carrito vaciado');
-    }
+    clearCart();
+    toast.success('¡Tu carrito ha sido vaciado exitosamente!');
   };
 
   const subtotal = getTotal();

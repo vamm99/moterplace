@@ -22,11 +22,17 @@ export async function loginAction(
       success: true,
       data: response,
     };
-  } catch (error) {
-    console.error('Error en login:', error);
+  } catch (error: any) {
+    if (error?.message?.includes('401')) {
+      return {
+        success: false,
+        error: 'Usuario o contraseña incorrectos.'
+      };
+    }
+  
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al iniciar sesión',
+      error: 'Ha ocurrido un error inesperado. Intenta de nuevo.'
     };
   }
 }
@@ -55,11 +61,10 @@ export async function registerAction(
       success: true,
       data: response,
     };
-  } catch (error) {
-    console.error('Error en registro:', error);
+  } catch (error: any) {
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al registrar usuario',
+      error: error instanceof Error ? error.message : 'No pudimos completar tu registro. Por favor inténtalo nuevamente.',
     };
   }
 }
@@ -90,10 +95,10 @@ export async function getCurrentUserAction() {
       success: true,
       data: user,
     };
-  } catch (error) {
+  } catch (error: any) {
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al obtener usuario',
+      error: error instanceof Error ? error.message : 'No pudimos obtener tu información. Por favor inténtalo nuevamente.',
     };
   }
 }

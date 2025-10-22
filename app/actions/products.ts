@@ -51,7 +51,7 @@ export async function getProductsAction(
     console.error('Error al obtener productos:', error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al obtener productos',
+      error: error instanceof Error ? error.message : 'No pudimos cargar los productos. Por favor inténtalo nuevamente.',
     };
   }
 }
@@ -73,7 +73,7 @@ export async function getProductByIdAction(
     console.error('Error al obtener producto:', error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al obtener producto',
+      error: error instanceof Error ? error.message : 'No pudimos cargar la información del producto. Por favor inténtalo nuevamente.',
     };
   }
 }
@@ -93,7 +93,7 @@ export async function getCategoriesAction(): Promise<ActionResult<CategoriesResp
     console.error('Error al obtener categorías:', error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al obtener categorías',
+      error: error instanceof Error ? error.message : 'No pudimos cargar las categorías. Por favor inténtalo nuevamente.',
     };
   }
 }

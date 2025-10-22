@@ -144,17 +144,17 @@ export default function CheckoutPage() {
       });
 
       if (!result.success || !result.data) {
-        throw new Error(result.error || 'No se pudo procesar la compra');
+        throw new Error(result.error || 'No pudimos procesar tu compra. Por favor inténtalo nuevamente.');
       }
 
       // Backend retorna orderId y paymentId
       setOrderNumber(result.data.orderId);
       clearCart();
       setStep('success');
-      toast.success('¡Pedido realizado exitosamente!');
+      toast.success('¡Tu pedido ha sido realizado exitosamente!');
     } catch (err: any) {
       console.error('Error al procesar el pago:', err);
-      toast.error(err?.message || 'No se pudo procesar el pago');
+      toast.error(err?.message || 'No pudimos procesar tu pago. Por favor verifica tu información e inténtalo nuevamente.');
     } finally {
       setLoading(false);
     }

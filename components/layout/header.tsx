@@ -29,14 +29,16 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Store className="h-8 w-8 text-black" />
-            <span className="text-2xl font-bold text-black">
-              Monter<span className="text-black">Place</span>
+          <Link href="/" className="flex items-center space-x-2 group">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 group-hover:from-indigo-600 group-hover:to-purple-700 transition-all">
+              <Store className="h-5 w-5 text-white" />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Monter<span className="text-gray-900">Place</span>
             </span>
           </Link>
 
@@ -65,10 +67,10 @@ export function Header() {
           <div className="flex items-center gap-2">
             {/* Wishlist */}
             <Link href="/wishlist">
-              <Button variant="ghost" size="icon" className="relative">
-                <Heart className="h-5 w-5 text-black" />
+              <Button variant="ghost" size="icon" className="relative hover:bg-purple-50">
+                <Heart className="h-5 w-5 text-gray-700 hover:text-purple-600 transition-colors" />
                 {mounted && wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-white">
+                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-xs text-white font-semibold">
                     {wishlistCount}
                   </span>
                 )}
@@ -77,10 +79,10 @@ export function Header() {
 
             {/* Cart */}
             <Link href="/cart">
-              <Button variant="ghost" size="icon" className="relative">
-                <ShoppingCart className="h-5 w-5 text-black" />
+              <Button variant="ghost" size="icon" className="relative hover:bg-indigo-50">
+                <ShoppingCart className="h-5 w-5 text-gray-700 hover:text-indigo-600 transition-colors" />
                 {mounted && itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-white">
+                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-xs text-white font-semibold">
                     {itemCount}
                   </span>
                 )}
@@ -89,8 +91,8 @@ export function Header() {
 
             {/* User Menu */}
             <Link href="/account">
-              <Button variant="ghost" size="icon">
-                <User className="h-5 w-5 text-black" />
+              <Button variant="ghost" size="icon" className="hover:bg-indigo-50">
+                <User className="h-5 w-5 text-gray-700 hover:text-indigo-600 transition-colors" />
               </Button>
             </Link>
 
@@ -134,21 +136,21 @@ export function Header() {
           <nav className="container mx-auto px-4 py-4 space-y-2">
             <Link
               href="/categories"
-              className="block py-2 text-black hover:text-primary-600 font-medium"
+              className="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Categorías
             </Link>
             <Link
               href="/deals"
-              className="block py-2 text-black hover:text-primary-600 font-medium"
+              className="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Ofertas
             </Link>
             <Link
               href="/account"
-              className="block py-2 text-black hover:text-primary-600 font-medium"
+              className="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Mi Cuenta

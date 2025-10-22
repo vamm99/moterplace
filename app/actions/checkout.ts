@@ -46,7 +46,7 @@ export async function processCheckoutAction(
     if (!token) {
       return {
         success: false,
-        error: 'No estás autenticado. Por favor inicia sesión.',
+        error: 'Debes iniciar sesión para completar tu compra. Por favor inicia sesión e inténtalo nuevamente.',
       };
     }
 
@@ -84,7 +84,7 @@ export async function processCheckoutAction(
     console.error('❌ Error en checkout:', error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Error al procesar el pago',
+      error: error instanceof Error ? error.message : 'No pudimos procesar tu pago. Por favor verifica tu información e inténtalo nuevamente.',
     };
   }
 }

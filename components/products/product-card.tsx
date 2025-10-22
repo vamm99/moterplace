@@ -35,12 +35,21 @@ export function ProductCard({ product }: ProductCardProps) {
     e.stopPropagation();
     
     if (product.stock === 0) {
-      toast.error('Producto agotado');
+      toast.error('Lo sentimos, este producto está agotado');
+      return;
+    }
+
+    // Verificar cuántos ya hay en el carrito
+    const cartItem = useCartStore.getState().getItem(product._id);
+    const currentQuantityInCart = cartItem ? cartItem.quantity : 0;
+    
+    if (currentQuantityInCart >= product.stock) {
+      toast.error(`Ya tienes la cantidad máxima disponible (${product.stock}) en tu carrito`);
       return;
     }
 
     addToCart(product, 1);
-    toast.success('Producto agregado al carrito');
+    toast.success('¡Producto agregado al carrito exitosamente!');
   };
 
   const handleToggleWishlist = (e: React.MouseEvent) => {
@@ -49,10 +58,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
     if (inWishlist) {
       removeFromWishlist(product._id);
-      toast.success('Eliminado de la lista de deseos');
+      toast.success('Producto eliminado de tu lista de deseos');
     } else {
       addToWishlist(product);
-      toast.success('Agregado a la lista de deseos');
+      toast.success('¡Producto agregado a tu lista de deseos!');
     }
   };
 

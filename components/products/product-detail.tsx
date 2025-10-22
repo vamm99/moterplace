@@ -33,26 +33,26 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   const handleAddToCart = () => {
     if (product.stock === 0) {
-      toast.error('Producto agotado');
+      toast.error('Lo sentimos, este producto está agotado');
       return;
     }
 
     if (quantity > product.stock) {
-      toast.error(`Solo hay ${product.stock} unidades disponibles`);
+      toast.error(`Solo hay ${product.stock} ${product.stock === 1 ? 'unidad disponible' : 'unidades disponibles'}`);
       return;
     }
 
     addToCart(product, quantity);
-    toast.success(`${quantity} ${quantity === 1 ? 'producto agregado' : 'productos agregados'} al carrito`);
+    toast.success(`¡${quantity} ${quantity === 1 ? 'producto agregado' : 'productos agregados'} al carrito exitosamente!`);
   };
 
   const handleToggleWishlist = () => {
     if (inWishlist) {
       removeFromWishlist(product._id);
-      toast.success('Eliminado de la lista de deseos');
+      toast.success('Producto eliminado de tu lista de deseos');
     } else {
       addToWishlist(product);
-      toast.success('Agregado a la lista de deseos');
+      toast.success('¡Producto agregado a tu lista de deseos!');
     }
   };
 

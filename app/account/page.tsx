@@ -32,10 +32,8 @@ export default function AccountPage() {
   };
 
   const handleLogout = async () => {
-    if (confirm('¿Estás seguro de cerrar sesión?')) {
-      await logoutAction();
-      toast.success('Sesión cerrada');
-    }
+    await logoutAction();
+    toast.success('Sesión cerrada');
   };
 
   if (loading) {
