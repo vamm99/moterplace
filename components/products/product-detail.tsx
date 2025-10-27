@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Product } from '@/lib/types/product';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -87,9 +88,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
         {/* Image Section */}
         <div className="space-y-4">
           <div className="relative aspect-square overflow-hidden rounded-lg border bg-gray-100">
-            <img
+            <Image
               src={product.image_url}
               alt={product.name}
+              width={600}
+              height={600}
               className="h-full w-full object-cover"
               onError={(e) => {
                 e.currentTarget.src = 'https://via.placeholder.com/600?text=Sin+Imagen';

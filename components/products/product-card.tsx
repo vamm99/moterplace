@@ -70,9 +70,11 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg">
         {/* Image */}
         <div className="relative aspect-square overflow-hidden bg-gray-100">
-          <img
+          <Image
             src={product.image_url}
             alt={product.name}
+            width={400}
+            height={400}
             className="h-full w-full object-cover transition-transform group-hover:scale-105"
             onError={(e) => {
               e.currentTarget.src = 'https://via.placeholder.com/400?text=Sin+Imagen';

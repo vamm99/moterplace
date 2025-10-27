@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { Package } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CategoriesPage() {
   const result = await getCategoriesAction();
   const categories = result.success ? result.data?.data || [] : [];

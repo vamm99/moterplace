@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Package, ArrowLeft, Calendar, DollarSign, ChevronRight } from 'lucide-react';
+import { Package, ArrowLeft, Calendar, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 import { getUserOrdersAction, Order } from '@/app/actions/orders';
 import { formatPrice } from '@/lib/utils';

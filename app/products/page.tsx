@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Product, Category } from '@/lib/types/product';
 import { getProductsAction, getCategoriesAction } from '@/app/actions/products';
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, SlidersHorizontal } from 'lucide-react';
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -27,6 +27,7 @@ export default function ProductsPage() {
 
   useEffect(() => {
     loadProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, searchQuery, selectedCategory, priceRange, sortBy]);
 
   const loadCategories = async () => {
@@ -38,7 +39,7 @@ export default function ProductsPage() {
 
   const loadProducts = async () => {
     setLoading(true);
-    const filters: any = {};
+    const filters: Record<string, string | number> = {};
     
     if (searchQuery) filters.search = searchQuery;
     if (selectedCategory) filters.category_id = selectedCategory;
@@ -233,5 +234,20 @@ export default function ProductsPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          <p className="mt-2 text-gray-500">Cargando...</p>
+        </div>
+      </div>
+    }>
+      <ProductsPageContent />
+    </Suspense>
   );
 }

@@ -15,6 +15,7 @@ export default function DealsPage() {
 
   useEffect(() => {
     loadProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const loadProducts = async () => {

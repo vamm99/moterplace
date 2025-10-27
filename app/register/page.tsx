@@ -39,6 +39,7 @@ export default function RegisterPage() {
 
     setLoading(true);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { confirmPassword, ...registerData } = formData;
     const result = await registerAction(registerData);
 
@@ -143,7 +144,7 @@ export default function RegisterPage() {
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        typeDocument: e.target.value as any,
+                        typeDocument: e.target.value as 'cc' | 'ce' | 'ti' | 'nit' | 'passport',
                       })
                     }
                     disabled={loading}

@@ -54,7 +54,15 @@ export async function getUserOrdersAction(): Promise<ActionResult<Order[]>> {
   }
 }
 
-export async function getUserPaymentsAction(): Promise<ActionResult<any[]>> {
+export interface Payment {
+  _id: string;
+  amount: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export async function getUserPaymentsAction(): Promise<ActionResult<Payment[]>> {
   try {
     const token = await getToken();
     if (!token) {
@@ -64,7 +72,7 @@ export async function getUserPaymentsAction(): Promise<ActionResult<any[]>> {
       };
     }
 
-    const response = await apiGet<{ data: any[] }>('/payment/user', token);
+    const response = await apiGet<{ data: Payment[] }>('/payment/user', token);
     
     return {
       success: true,

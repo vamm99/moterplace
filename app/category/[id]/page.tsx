@@ -19,6 +19,7 @@ export default function CategoryPage() {
 
   useEffect(() => {
     loadProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId, page]);
 
   const loadProducts = async () => {

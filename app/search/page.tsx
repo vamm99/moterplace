@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Product } from '@/lib/types/product';
 import { getProductsAction } from '@/app/actions/products';
@@ -8,7 +8,7 @@ import { ProductCard } from '@/components/products/product-card';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [products, setProducts] = useState<Product[]>([]);
@@ -20,6 +20,7 @@ export default function SearchPage() {
     if (query) {
       loadProducts();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, page]);
 
   const loadProducts = async () => {
@@ -98,5 +99,20 @@ export default function SearchPage() {
         </>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          <p className="mt-2 text-gray-500">Buscando...</p>
+        </div>
+      </div>
+    }>
+      <SearchPageContent />
+    </Suspense>
   );
 }

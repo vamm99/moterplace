@@ -1,8 +1,10 @@
 import { getProductsAction, getCategoriesAction } from './actions/products';
 import { ProductCard } from '@/components/products/product-card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, TrendingUp, Zap, Shield, Truck, Gift, Package } from 'lucide-react';
+import { ArrowRight, Shield, Truck, Gift } from 'lucide-react';
 import Link from 'next/link';
+
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const [productsResult, categoriesResult] = await Promise.all([

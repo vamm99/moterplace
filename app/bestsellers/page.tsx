@@ -2,6 +2,8 @@ import { getProductsAction } from '@/app/actions/products';
 import { ProductCard } from '@/components/products/product-card';
 import { TrendingUp, Star } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BestsellersPage() {
   const result = await getProductsAction(1, 20);
   const products = result.success ? result.data?.data || [] : [];

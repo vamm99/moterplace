@@ -39,12 +39,12 @@ export async function apiClient<T>(
 
     const clonedResponse = response.clone();
     
-    let data: any = null;
+    let data: unknown = null;
     let rawText: string | null = null;
 
     try {
         data = await response.json();
-    } catch (e) {
+    } catch {
         rawText = await clonedResponse.text().catch(() => null);
     }
     

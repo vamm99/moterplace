@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCartStore } from '@/lib/store/cart-store';
 import { Button } from '@/components/ui/button';
 import { formatPrice, calculateDiscount } from '@/lib/utils';
@@ -81,9 +82,11 @@ export default function CartPage() {
               >
                 {/* Image */}
                 <Link href={`/product/${item.product._id}`}>
-                  <img
+                  <Image
                     src={item.product.image_url}
                     alt={item.product.name}
+                    width={96}
+                    height={96}
                     className="w-24 h-24 object-cover rounded"
                     onError={(e) => {
                       e.currentTarget.src = 'https://via.placeholder.com/100';

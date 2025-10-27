@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, User as UserIcon } from 'lucide-react';
 import { getProductReviewsAction, createReviewAction, Review } from '@/app/actions/reviews';
@@ -28,6 +27,7 @@ export function ProductReviews({ productId }: ProductReviewsProps) {
   useEffect(() => {
     loadReviews();
     checkAuth();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   const checkAuth = async () => {

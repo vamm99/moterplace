@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useCartStore } from '@/lib/store/cart-store';
 import { getCurrentUserAction } from '@/app/actions/auth';
 import { processCheckoutAction } from '@/app/actions/checkout';
@@ -14,7 +14,6 @@ import { toast } from 'sonner';
 import Link from 'next/link';
 
 export default function CheckoutPage() {
-  const router = useRouter();
   const { items, getTotal, clearCart } = useCartStore();
   const [loading, setLoading] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
@@ -152,9 +151,9 @@ export default function CheckoutPage() {
       clearCart();
       setStep('success');
       toast.success('¡Tu pedido ha sido realizado exitosamente!');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error al procesar el pago:', err);
-      toast.error(err?.message || 'No pudimos procesar tu pago. Por favor verifica tu información e inténtalo nuevamente.');
+      toast.error(err instanceof Error ? err.message : 'No pudimos procesar tu pago. Por favor verifica tu información e inténtalo nuevamente.');
     } finally {
       setLoading(false);
     }
@@ -488,9 +487,11 @@ export default function CheckoutPage() {
 
                   return (
                     <div key={item.product._id} className="flex gap-3">
-                      <img
+                      <Image
                         src={item.product.image_url}
                         alt={item.product.name}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 object-cover rounded"
                       />
                       <div className="flex-1">

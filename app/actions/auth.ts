@@ -22,8 +22,8 @@ export async function loginAction(
       success: true,
       data: response,
     };
-  } catch (error: any) {
-    if (error?.message?.includes('401')) {
+  } catch (error: unknown) {
+    if (error instanceof Error && error.message.includes('401')) {
       return {
         success: false,
         error: 'Usuario o contraseña incorrectos.'
@@ -61,7 +61,7 @@ export async function registerAction(
       success: true,
       data: response,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'No pudimos completar tu registro. Por favor inténtalo nuevamente.',
@@ -95,7 +95,7 @@ export async function getCurrentUserAction() {
       success: true,
       data: user,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'No pudimos obtener tu información. Por favor inténtalo nuevamente.',
