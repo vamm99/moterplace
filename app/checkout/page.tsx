@@ -20,6 +20,7 @@ export default function CheckoutPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [step, setStep] = useState<'info' | 'payment' | 'success'>('info');
   const [orderNumber, setOrderNumber] = useState('');
+  const [finalTotal, setFinalTotal] = useState(0);
 
   useEffect(() => {
     checkAuthentication();
@@ -148,6 +149,7 @@ export default function CheckoutPage() {
 
       // Backend retorna orderId y paymentId
       setOrderNumber(result.data.orderId);
+      setFinalTotal(total); // Guardar el total antes de limpiar el carrito
       clearCart();
       setStep('success');
       toast.success('¡Tu pedido ha sido realizado exitosamente!');
@@ -182,7 +184,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="border-t pt-4">
                   <p className="text-sm text-gray-600">Total Pagado</p>
-                  <p className="text-3xl font-bold">{formatPrice(total)}</p>
+                  <p className="text-3xl font-bold">{formatPrice(finalTotal)}</p>
                 </div>
                 <div className="border-t pt-4 text-left">
                   <p className="text-sm text-gray-600 mb-2">Información de Envío</p>
