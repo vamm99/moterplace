@@ -18,6 +18,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [mounted, setMounted] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const addToCart = useCartStore((state) => state.addItem);
   const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore();
   const inWishlist = isInWishlist(product._id);
@@ -70,16 +71,20 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg">
         {/* Image */}
         <div className="relative aspect-square overflow-hidden bg-gray-100">
-          <Image
-            src={product.image_url}
-            alt={product.name}
-            width={400}
-            height={400}
-            className="h-full w-full object-cover transition-transform group-hover:scale-105"
-            onError={(e) => {
-              e.currentTarget.src = 'https://via.placeholder.com/400?text=Sin+Imagen';
-            }}
-          />
+          {!imageError ? (
+            <Image
+              src={product.image_url}
+              alt={product.name}
+              width={400}
+              height={400}
+              className="h-full w-full object-cover transition-transform group-hover:scale-105"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="h-full w-full flex items-center justify-center bg-gray-200">
+              <span className="text-gray-400 text-sm">Sin Imagen</span>
+            </div>
+          )}
           
           {/* Discount Badge */}
           {product.discount > 0 && (
