@@ -71,7 +71,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg">
         {/* Image */}
         <div className="relative aspect-square overflow-hidden bg-gray-100">
-          {!imageError ? (
+          {!imageError && product.image_url && !product.image_url.includes('example.com') ? (
             <Image
               src={product.image_url}
               alt={product.name}
