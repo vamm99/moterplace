@@ -4,12 +4,11 @@ import { cookies } from 'next/headers';
 import { apiGet } from '@/lib/api/client';
 import { ActionResult } from '@/lib/types/api';
 
-// Interfaz actualizada para coincidir con la respuesta de la API
+// Interfaz actualizada para coincidir con Payment de la API (con productos populados)
 export interface Order {
   _id: string;
-  orderNumber: string;
   products: Array<{
-    product_id: {  // Antes era solo string
+    product_id: {
       _id: string;
       name: string;
       price: number;
@@ -19,6 +18,7 @@ export interface Order {
     price: number;
   }>;
   total: number;
+  payment_method: string;
   status: string;
   createdAt: string;
   updatedAt: string;
@@ -39,7 +39,9 @@ export async function getUserOrdersAction(): Promise<ActionResult<Order[]>> {
       };
     }
 
-    const response = await apiGet<{ data: Order[] }>('/sales/user', token);
+    // Cambiar de /sales/user a /payment/user
+    // Los customers ven sus pagos/pedidos, no las ventas de los sellers
+    const response = await apiGet<{ data: Order[] }>('/payment/user', token);
     
     return {
       success: true,
