@@ -98,8 +98,8 @@ export default async function Home() {
       <section className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold">ProductosDestacados</h2>
-          <Link href="/products" className='hover:bg-black hover:text-white'>
-            <Button variant="ghost">
+          <Link href="/products">
+            <Button variant="ghost" className='hover:bg-black hover:text-white'>
               Ver todos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
