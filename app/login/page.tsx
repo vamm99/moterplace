@@ -99,11 +99,11 @@ export default function LoginPage() {
                   Regístrate
                 </Link>
               </p>
-              <p className="text-sm text-gray-600">
+              {/* <p className="text-sm text-gray-600">
                 <Link href="/forgot-password" className="text-blue-600 hover:underline">
                   ¿Olvidaste tu contraseña?
                 </Link>
-              </p>
+              </p> */}
             </div>
           </CardContent>
         </Card>

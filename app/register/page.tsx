@@ -6,13 +6,14 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { registerAction } from '@/app/actions/auth';
-import { ShoppingCart, Mail, Lock, User, Phone, IdCard } from 'lucide-react';
+import { registerAction, registerSellerAction } from '@/app/actions/auth';
+import { ShoppingCart, Mail, Lock, User, Phone, IdCard, Store } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function RegisterPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [userType, setUserType] = useState<'customer' | 'seller'>('customer');
   const [formData, setFormData] = useState({
     name: '',
     lastName: '',
@@ -41,14 +42,25 @@ export default function RegisterPage() {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { confirmPassword, ...registerData } = formData;
-    const result = await registerAction(registerData);
-
-    if (result.success) {
-      toast.success('¡Cuenta creada exitosamente!');
-      router.push('/');
-      router.refresh();
+    
+    let result;
+    if (userType === 'seller') {
+      result = await registerSellerAction(registerData);
+      if (result.success) {
+        toast.success('¡Cuenta de vendedor creada! Por favor revisa tu correo electrónico para acceder al administrador.');
+        router.push('/login');
+      } else {
+        toast.error(result.error || 'Error al crear la cuenta de vendedor');
+      }
     } else {
-      toast.error(result.error || 'Error al crear la cuenta');
+      result = await registerAction(registerData);
+      if (result.success) {
+        toast.success('¡Cuenta creada exitosamente!');
+        router.push('/');
+        router.refresh();
+      } else {
+        toast.error(result.error || 'Error al crear la cuenta');
+      }
     }
 
     setLoading(false);
@@ -71,11 +83,68 @@ export default function RegisterPage() {
           <CardHeader>
             <CardTitle className="text-2xl">Crear Cuenta</CardTitle>
             <CardDescription>
-              Regístrate para comenzar a comprar
+              Regístrate para comenzar a {userType === 'seller' ? 'vender' : 'comprar'}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* User Type Selection */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium block">
+                  <Store className="inline h-4 w-4 mr-1" />
+                  Tipo de Cuenta *
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <div
+                    onClick={() => !loading && setUserType('customer')}
+                    className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${
+                      userType === 'customer'
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="userType"
+                        value="customer"
+                        checked={userType === 'customer'}
+                        onChange={() => setUserType('customer')}
+                        disabled={loading}
+                        className="h-4 w-4 text-blue-600"
+                      />
+                      <div>
+                        <p className="font-semibold">Cliente</p>
+                        <p className="text-xs text-gray-600">Comprar productos</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => !loading && setUserType('seller')}
+                    className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${
+                      userType === 'seller'
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="userType"
+                        value="seller"
+                        checked={userType === 'seller'}
+                        onChange={() => setUserType('seller')}
+                        disabled={loading}
+                        className="h-4 w-4 text-blue-600"
+                      />
+                      <div>
+                        <p className="font-semibold">Vendedor</p>
+                        <p className="text-xs text-gray-600">Vender productos</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">
@@ -206,8 +275,16 @@ export default function RegisterPage() {
                 </div>
               </div>
 
+              {userType === 'seller' && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <p className="text-sm text-blue-800">
+                    <strong>Nota:</strong> Al registrarte como vendedor, recibirás un correo electrónico con un enlace para acceder al panel de administrador.
+                  </p>
+                </div>
+              )}
+
               <Button type="submit" className="w-full text-black hover:bg-black hover:text-white" size="lg" disabled={loading}>
-                {loading ? 'Creando cuenta...' : 'Crear Cuenta'}
+                {loading ? 'Creando cuenta...' : userType === 'seller' ? 'Crear Cuenta de Vendedor' : 'Crear Cuenta'}
               </Button>
             </form>
 

@@ -70,6 +70,33 @@ export async function registerAction(
 }
 
 /**
+ * Registro de vendedor
+ */
+export async function registerSellerAction(
+  userData: RegisterData
+): Promise<ActionResult<{ message: string }>> {
+  try {
+    const sellerData = {
+      ...userData,
+      role: 'seller',
+      status: true,
+    };
+
+    const response = await apiPost<{ message: string }>('/auth/register-seller', sellerData);
+
+    return {
+      success: true,
+      data: response,
+    };
+  } catch (error: unknown) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'No pudimos completar tu registro como vendedor. Por favor inténtalo nuevamente.',
+    };
+  }
+}
+
+/**
  * Logout de usuario
  */
 export async function logoutAction() {
