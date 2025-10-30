@@ -82,10 +82,10 @@ export default async function Home() {
               <Link
                 key={category._id}
                 href={`/category/${category._id}`}
-                className="group p-6 rounded-lg border-2 border-gray-200 hover:border-primary-600 hover:shadow-lg transition-all text-center"
+                className="group p-6 rounded-lg border-2 border-gray-200 hover:border-primary-600 hover:shadow-lg transition-all text-center flex flex-col items-center justify-center min-h-[120px]"
               >
-                <p className="font-semibold text-sm text-gray-900">Envío Gratis</p>
-                <h3 className="text-xl font-semibold mb-2 text-primary-600 transition-colors">
+                <p className="font-semibold text-xs text-gray-900 mb-2 truncate w-full">Envío Gratis</p>
+                <h3 className="text-lg font-semibold text-primary-600 transition-colors line-clamp-2 break-words w-full">
                   {category.name}
                 </h3>
               </Link>
