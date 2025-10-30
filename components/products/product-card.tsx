@@ -67,8 +67,8 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Link href={`/product/${product._id}`}>
-      <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg">
+    <Link href={`/product/${product._id}`} className="h-full">
+      <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg h-full flex flex-col">
         {/* Image */}
         <div className="relative aspect-square overflow-hidden bg-gray-100">
           {!imageError && product.image_url && !product.image_url.includes('example.com') ? (
@@ -119,17 +119,17 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Content */}
-        <div className="p-4 space-y-2">
+        <div className="p-4 flex flex-col flex-1">
           {/* Title */}
-          <h3 className="font-semibold text-lg text-gray-950 line-clamp-2 mb-2">
+          <h3 className="font-semibold text-lg text-gray-950 line-clamp-2 h-14 mb-2">
             {product.name}
           </h3>
-          <p className="text-sm text-gray-700 line-clamp-2 mb-3">
+          <p className="text-sm text-gray-700 line-clamp-2 h-10 mb-3">
             {product.description}
           </p>
 
           {/* Price */}
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-baseline gap-2 mb-3">
             <span className="text-2xl font-bold text-gray-950">
               {formatPrice(finalPrice)}
             </span>
@@ -142,7 +142,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
           {/* Add to Cart Button */}
           <Button
-            className="w-full text-black hover:bg-black hover:text-white"
+            className="w-full text-black hover:bg-black hover:text-white mt-auto"
             onClick={handleAddToCart}
             disabled={product.stock === 0}
           >
